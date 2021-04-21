@@ -29,7 +29,15 @@ img {
 	border: none;
 }
 
-#logInButton {
+.button {
+	margin: 20px;
+	padding: 10px;
+	border: none;
+	background-color: #d9ac9c;
+	font-weight: 700;
+}
+
+/* #logInButton {
 	margin: 20px;
 	padding: 10px;
 	border: none;
@@ -43,7 +51,7 @@ img {
 	border: none;
 	background-color: #d9ac9c;
 	font-weight: 700;
-}
+} */
 
 #mainDiv {
 }

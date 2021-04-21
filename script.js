@@ -44,6 +44,7 @@ headerElem.appendChild(menuElem);
 // LOGOUT BUTTON
 const logOutButton = document.createElement("button");
 logOutButton.id = "logOutButton";
+logOutButton.className ="button";
 logOutButton.innerText = "Logga ut";
 logOutButton.onclick = logOut;
 
@@ -66,8 +67,37 @@ userPasswordElem.placeholder = "Lösenord";
 
 const logInButton = document.createElement("button");
 logInButton.id = "logInButton";
+logInButton.className = "button";
 logInButton.innerText = "Logga in";
 logInButton.onclick = inputLogin; 
+
+// REGISTER_MENU
+const regNameInput = document.createElement("input");
+regNameInput.className = "input";
+regNameInput.type = "text";
+regNameInput.placeholder = "Önskat användarnamn";
+
+const regPasswordInput = document.createElement("input");
+regPasswordInput.className = "input";
+regPasswordInput.type = "text";
+regPasswordInput.placeholder = "Önskat lösenord";
+
+const regEmail = document.createElement("input");
+regEmail.className = "input";
+regEmail.type = "text";
+regEmail.placeholder = "Ange Epostadress";
+
+const regNewsletterCheck = document.createElement("input");
+regNewsletterCheck.className = "checkbox"
+regNewsletterCheck.type = "checkbox";
+// regNewsletterCheck.label = "Prenumerera på nyhetsbrev"
+// Hur skriva text till? 
+
+const regButton = document.createElement("button");
+regButton.id = "regButton";
+regButton.className = "button";
+regButton.innerText = "Registrera dig";
+regButton.onclick = inputLogin; 
 
 
 // MAIN
@@ -190,6 +220,13 @@ function render() {
         menuElem.appendChild(userNameElem);
         menuElem.appendChild(userPasswordElem);
         menuElem.appendChild(logInButton); 
+
+        menuElem.appendChild(regNameInput);
+        menuElem.appendChild(regPasswordInput);
+        menuElem.appendChild(regEmail);
+        menuElem.appendChild(regNewsletterCheck);
+        menuElem.appendChild(regButton);
+        
         
         if (failedLogin) {
             console.log("Wrong! Try again");
