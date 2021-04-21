@@ -5,7 +5,7 @@ body {
 }
 
 #headerElem {
-	background-color: #730d15;
+	background-color: #333;
 	display: flex;
 	align-items: center;
 	justify-content: center;
