@@ -37,6 +37,11 @@ img {
 	font-weight: 700;
 }
 
+.checkbox {
+	width: 30px;
+	height: 30px;
+}
+
 /* #logInButton {
 	margin: 20px;
 	padding: 10px;

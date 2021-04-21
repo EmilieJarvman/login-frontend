@@ -1,19 +1,4 @@
-// Menu + logga
-// Menu: Logga-in-formulär om ej inloggad
-// Logga-ut-knapp i menu
 
-// Innehåll: Välkommen-sida om inloggad
-// Innehåll: Välkommen-sida om ej inloggad
-// Innehåll: Hoppsan-sida om fel inloggning
-
-// Footer med någon slags information
-
-
-
-// EXTRA FUNCTIONS
-// function capitalizeFirstLetter(string) {
-//     return string.charAt(0).toUpperCase() + string.slice(1);
-//   }
 
 const localStorageKey = "loggedInUserId";
 let isLoggedIn = false;
@@ -166,54 +151,68 @@ function render() {
         headerSuccessElem.innerText = `Hej! Nu är du inloggad.`;
         mainDiv.appendChild(headerSuccessElem);
 
-        fetch("https://emibur-1.herokuapp.com/users/list")
-        .then(res => res.json())
-        .then(data => {
+        const regInfoText = document.createElement("p");
+        regInfoText.innerHTML = "Du prenumererar (inte) på vårt nyhetsbrev";
+
+        const regQuestionText = document.createElement("p");
+        regQuestionText.innerHTML = "Klicka i om du vill (sluta) prenumerera";
+
+        const toggleCheckbox = document.createElement("input");
+        toggleCheckbox.type = "checkbox";
+        toggleCheckbox.className = "checkbox";
+
+        mainDiv.appendChild(regInfoText);
+        mainDiv.appendChild(regQuestionText);
+        mainDiv.appendChild(toggleCheckbox);
+
+        // fetch("https://emibur-1.herokuapp.com/users/list")
+        // .then(res => res.json())
+        // .then(data => {
         
-            for(item in data) {
-                const user = data[item];
-                const userDiv = document.createElement("div");
-                userDiv.innerText = `${user.username} ${user.password}, epost: ${user.email}, nr: ${user.id}`
-                mainDiv.appendChild(userDiv)
-            }
+            // for(item in data) {
+            //     const user = data[item];
+            //     const userDiv = document.createElement("div");
+            //     userDiv.innerText = `${user.username} ${user.password}, epost: ${user.email}, nr: ${user.id}`
+            //     mainDiv.appendChild(userDiv)
+            // }
 
             
-            const inputElem = document.createElement("input");
-            const buttonElem = document.createElement("button");
-            buttonElem.innerText = "Spara"
+            // const inputElem = document.createElement("input");
+            // const buttonElem = document.createElement("button");
+            // buttonElem.innerText = "Spara"
             
-            buttonElem.onclick = function() {
-                let newUser = {
-                    username: inputElem.value,
-                    password: inputElem.value + "hemligt",
-                    email: inputElem.value + "@test.com",
-                    id: 0012345
-                }
-                console.log(newUser);
+            // buttonElem.onclick = function() {
+            //     let newUser = {
+            //         username: inputElem.value,
+            //         password: inputElem.value + "hemligt",
+            //         email: inputElem.value + "@test.com",
+            //         id: 0012345
+            //     }
+            //     console.log(newUser);
                 
-                fetch("https://emibur-1.herokuapp.com/users/add", {
-                    method: "post",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(newUser)
-                })
-                .then(res => res.json())
-                .then(data =>  {
-                    console.log(data)
-                    render()
+            //     fetch("https://emibur-1.herokuapp.com/users/add", {
+            //         method: "post",
+            //         headers: {
+            //             "Content-Type": "application/json"
+            //         },
+            //         body: JSON.stringify(newUser)
+            //     })
+            //     .then(res => res.json())
+            //     .then(data =>  {
+            //         console.log(data)
+            //         render()
         
-                });
-            }
+            //     });
+            // }
 
-            mainDiv.appendChild(inputElem);
-            mainDiv.appendChild(buttonElem);
+            // mainDiv.appendChild(inputElem);
+            // mainDiv.appendChild(buttonElem);
 
-            inputElem.name = "username"
+            // inputElem.name = "username"
 
-            console.log(data);
+            
 
-        })
+        // })
         
     } else {
         console.log(failedLogin);
