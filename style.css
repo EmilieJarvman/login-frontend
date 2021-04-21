@@ -42,6 +42,14 @@ img {
 	height: 30px;
 }
 
+.loginDivElem {
+	background-color: red;
+}
+
+.registerDivElem {
+	background-color: blue;
+}
+
 /* #logInButton {
 	margin: 20px;
 	padding: 10px;

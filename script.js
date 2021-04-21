@@ -34,6 +34,9 @@ function logOut() {
 
 
 // LOGIN_MENU
+const loginDivElem = document.createElement("div");
+loginDivElem.className = "loginDivElem";
+
 const userNameElem = document.createElement("input");
 userNameElem.className = "input";
 userNameElem.type = "text";
@@ -51,6 +54,10 @@ logInButton.innerText = "Logga in";
 logInButton.onclick = inputLogin; 
 
 // REGISTER_MENU
+const registerDivElem = document.createElement("div");
+registerDivElem.className = "registerDivElem";
+
+
 const regNameInput = document.createElement("input");
 regNameInput.className = "input";
 regNameInput.type = "text";
@@ -210,15 +217,17 @@ function render() {
         
     } else {
         console.log(failedLogin);
-        menuElem.appendChild(userNameElem);
-        menuElem.appendChild(userPasswordElem);
-        menuElem.appendChild(logInButton); 
+        menuElem.appendChild(loginDivElem);
+        loginDivElem.appendChild(userNameElem);
+        loginDivElem.appendChild(userPasswordElem);
+        loginDivElem.appendChild(logInButton); 
 
-        menuElem.appendChild(regNameInput);
-        menuElem.appendChild(regPasswordInput);
-        menuElem.appendChild(regEmail);
-        menuElem.appendChild(regNewsletterCheck);
-        menuElem.appendChild(regButton);
+        menuElem.appendChild(registerDivElem);
+        registerDivElem.appendChild(regNameInput);
+        registerDivElem.appendChild(regPasswordInput);
+        registerDivElem.appendChild(regEmail);
+        registerDivElem.appendChild(regNewsletterCheck);
+        registerDivElem.appendChild(regButton);
         
         
         if (failedLogin) {
