@@ -43,11 +43,17 @@ img {
 }
 
 .loginDivElem {
-	background-color: red;
+	background-color: lightgray;
+	border: solid 1px #333;
+	display: flex;
+	flex-direction: column;
 }
 
 .registerDivElem {
-	background-color: blue;
+	background-color: lightgray;
+	border: solid 1px #333;
+	display: flex;
+	flex-direction: column;
 }
 
 /* #logInButton {
