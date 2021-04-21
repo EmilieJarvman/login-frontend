@@ -56,25 +56,6 @@ img {
 	flex-direction: column;
 }
 
-/* #logInButton {
-	margin: 20px;
-	padding: 10px;
-	border: none;
-	background-color: #d9ac9c;
-	font-weight: 700;
-}
-
-#logOutButton {
-	margin: 20px;
-	padding: 10px;
-	border: none;
-	background-color: #d9ac9c;
-	font-weight: 700;
-} */
-
-#mainDiv {
-}
-
 h1 {
 	text-align: center;
 }
@@ -91,10 +72,3 @@ p {
 	text-align: center;
 	margin: 60px;
 }
-
-/* Colorscheme: 
-#730d15
-#504f59
-#757d8c
-#9997a6
-#d9ac9c */

@@ -76,6 +76,9 @@ regEmail.placeholder = "Ange Epostadress";
 const regNewsletterCheck = document.createElement("input");
 regNewsletterCheck.className = "checkbox"
 regNewsletterCheck.type = "checkbox";
+
+const regLabel = document.createElement("label");
+regLabel.innerText = "Prenumerera";
 // regNewsletterCheck.label = "Prenumerera på nyhetsbrev"
 // Hur skriva text till? 
 
@@ -83,7 +86,39 @@ const regButton = document.createElement("button");
 regButton.id = "regButton";
 regButton.className = "button";
 regButton.innerText = "Registrera dig";
-regButton.onclick = inputLogin; 
+regButton.onclick = function () {
+    const username = regNameInput.value;
+    const password = regPasswordInput.value;
+    const email = regEmail.value;
+    const subscribed = regNewsletterCheck.checked;
+    const newUser = {
+        username,
+        password,
+        email,
+        subscribed,
+    }
+    console.log(newUser, JSON.stringify(newUser));
+    // fetch("http://localhost:3000/users/adduser", {
+    fetch("https://emibur-1.herokuapp.com/users/adduser", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newUser)
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log({data})
+    })
+    // .then(data => {
+    //     console.log(data);
+    //     // glöm inte att tömma reg-formuläret
+    //     // userNameElem.value = "";
+    //     // userPasswordElem.value = ""; 
+    //     render();
+    // })    
+}
+// Function så att ny användare sparas
 
 
 // MAIN
@@ -130,6 +165,8 @@ function inputLogin() {
 
     
 }
+
+// REGISTER NEW USER
 
 
 // FOOTER
@@ -227,8 +264,9 @@ function render() {
         registerDivElem.appendChild(regPasswordInput);
         registerDivElem.appendChild(regEmail);
         registerDivElem.appendChild(regNewsletterCheck);
+        registerDivElem.appendChild(regLabel);
         registerDivElem.appendChild(regButton);
-        
+     
         
         if (failedLogin) {
             console.log("Wrong! Try again");
