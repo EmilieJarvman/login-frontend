@@ -15,12 +15,6 @@ let headerElem = document.createElement("header");
 headerElem.id = "headerElem";
 document.body.appendChild(headerElem);
 
-// LOGO-IMG
-const logoImage = document.createElement("img");
-logoImage.src = "./ugly_logo.svg";
-logoImage.alt = "ugly login logo";
-headerElem.appendChild(logoImage);
-
 // MENU
 let menuElem = document.createElement("div");
 menuElem.id = "menuElem";
