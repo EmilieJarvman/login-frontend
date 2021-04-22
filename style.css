@@ -1,16 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
 body {
 	background-color: #9997a6;
 	margin: 0;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	overflow: hidden;
+	font-family: "Poppins", sans-serif;
 }
 
-#headerElem {
-	/* background-color: #504f59; */
+/* #headerElem {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+} */
+
+#header {
+	margin-top: 100px;
 }
 
 #menuElem {
@@ -19,15 +25,16 @@ body {
 	justify-content: center;
 }
 
+/* ANIMATED BACKGROUND */
 .animElem {
 	width: 150vw;
 	height: 150vw;
-	background-color: rgba(63, 58, 58, 0.5);
+	background-color: rgba(63, 58, 58, 0.4);
 	position: absolute;
 	top: -125vw;
 	left: calc(50% - 70vw);
 	border-radius: 45%;
-	animation: rotate 30s infinite;
+	animation: rotate 50s infinite;
 	z-index: -100;
 }
 
@@ -53,15 +60,13 @@ body {
 	}
 }
 
-img {
-	width: 200px;
-	height: auto;
-}
+/* END OF ANIMATED BACKGROUND */
 
 .input {
 	margin: 5px;
-	padding: 10px;
+	padding: 15px;
 	border: none;
+	border-radius: 4px;
 }
 
 .button {
@@ -70,7 +75,9 @@ img {
 	border: none;
 	border-radius: 4px;
 	background-color: #d9ac9c;
+	border: solid 1px #ba9d92;
 	font-weight: 700;
+	text-transform: uppercase;
 }
 
 .checkbox {
@@ -80,11 +87,12 @@ img {
 
 /* .loginDivElem och .registerDivElem är exakt lika. Fixa det!*/
 .loginDivElem {
+	margin: 100px 50px;
 	padding: 20px;
 	width: 250px;
 	height: 350px;
 	background-color: lightgray;
-	border: solid 1px #333;
+	/* border: solid 1px #333; */
 	border-radius: 20px;
 	display: flex;
 	flex-direction: column;
@@ -92,28 +100,32 @@ img {
 }
 
 .registerDivElem {
+	margin: 100px 50px;
 	padding: 20px;
 	width: 250px;
 	height: 350px;
 	background-color: lightgray;
-	border: solid 1px #333;
+	/* border: solid 1px #333; */
 	border-radius: 20px;
 	display: flex;
 	flex-direction: column;
 	box-shadow: 0.5rem 0.5rem 2rem #000;
 }
 
-.input {
-	padding: 15px;
-	border-radius: 4px;
+#regLabel {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
 }
 
 h1 {
 	text-align: center;
+	color: rgb(42, 41, 41);
 }
 
 #footer {
-	background-color: rgba(63, 58, 58, 0.5);
+	background-color: #706c74;
 	color: white;
 	position: fixed;
 	bottom: 0;

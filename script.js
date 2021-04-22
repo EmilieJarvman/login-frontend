@@ -13,8 +13,12 @@ function checkLogin() {
 // HEADER
 let headerElem = document.createElement("header");
 headerElem.id = "headerElem";
-// headerElem.className = "floatingBG"
 document.body.appendChild(headerElem);
+
+const header = document.createElement("h1");
+header.id = "header";
+// header.innerText = "Hej! Logga in eller registrera dig."
+headerElem.appendChild(header); 
 
 // ANIMATED BACKGROUND
 let animElem = document.createElement("div");
@@ -86,8 +90,7 @@ regNewsletterCheck.type = "checkbox";
 
 const regLabel = document.createElement("label");
 regLabel.innerText = "Prenumerera";
-// regNewsletterCheck.label = "Prenumerera på nyhetsbrev"
-// Hur skriva text till? 
+regLabel.id ="regLabel"
 
 const regButton = document.createElement("button");
 regButton.id = "regButton";
@@ -134,7 +137,7 @@ mainDiv.id = "mainDiv";
 document.body.appendChild(mainDiv); 
 
 const headerLoginElem = document.createElement("h1");
-headerLoginElem.innerText = "Hej! Logga in på sidan!";
+// headerLoginElem.innerText = "Hej! Logga in på sidan!";
 
 const headerFailedElem = document.createElement("h1");
 headerFailedElem.innerText = "Hoppsan! Nu blev det fel..";
@@ -182,7 +185,7 @@ footer.id = "footer";
 document.body.appendChild(footer);
 
 const footerText = document.createElement("p");
-footerText.innerText = "FOOTER: This is some information you can read.";
+footerText.innerText = "Glöm inte att prenumerera på vårt fantastiska nyhetsbrev!";
 footer.appendChild(footerText);
 
 
@@ -191,6 +194,7 @@ function render() {
     checkLogin();
     menuElem.innerText = "";
     mainDiv.innerText = "";
+    header.innerText = "";
     if (isLoggedIn) {
         menuElem.appendChild(logOutButton);
         headerSuccessElem.innerText = `Hej! Nu är du inloggad.`;
@@ -260,6 +264,7 @@ function render() {
         // })
         
     } else {
+        // headerElem.appendChild(header); 
         console.log(failedLogin);
         menuElem.appendChild(loginDivElem);
         loginDivElem.appendChild(userNameElem);
@@ -270,8 +275,8 @@ function render() {
         registerDivElem.appendChild(regNameInput);
         registerDivElem.appendChild(regPasswordInput);
         registerDivElem.appendChild(regEmail);
-        registerDivElem.appendChild(regNewsletterCheck);
         registerDivElem.appendChild(regLabel);
+        regLabel.appendChild(regNewsletterCheck);
         registerDivElem.appendChild(regButton);
      
         
@@ -279,7 +284,10 @@ function render() {
             console.log("Wrong! Try again");
             mainDiv.appendChild(headerFailedElem);
         }else {
+            header.innerText = "Hej! Logga in eller registrera dig."
             mainDiv.appendChild(headerLoginElem);
+            
+            
         }
     }
 }
