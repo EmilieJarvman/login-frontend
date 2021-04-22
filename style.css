@@ -2,10 +2,11 @@ body {
 	background-color: #9997a6;
 	margin: 0;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	overflow: hidden;
 }
 
 #headerElem {
-	background-color: #333;
+	/* background-color: #504f59; */
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -16,6 +17,40 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.animElem {
+	width: 150vw;
+	height: 150vw;
+	background-color: rgba(63, 58, 58, 0.5);
+	position: absolute;
+	top: -125vw;
+	left: calc(50% - 70vw);
+	border-radius: 45%;
+	animation: rotate 30s infinite;
+	z-index: -100;
+}
+
+.animElem::before {
+	content: "";
+	width: 100%;
+	height: 100%;
+	background-color: rgba(63, 58, 58, 0.1);
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 40%;
+	animation: rotate 30s infinite;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 img {
@@ -33,6 +68,7 @@ img {
 	margin: 20px;
 	padding: 10px;
 	border: none;
+	border-radius: 4px;
 	background-color: #d9ac9c;
 	font-weight: 700;
 }
@@ -42,18 +78,34 @@ img {
 	height: 30px;
 }
 
+/* .loginDivElem och .registerDivElem är exakt lika. Fixa det!*/
 .loginDivElem {
+	padding: 20px;
+	width: 250px;
+	height: 350px;
 	background-color: lightgray;
 	border: solid 1px #333;
+	border-radius: 20px;
 	display: flex;
 	flex-direction: column;
+	box-shadow: 0.5rem 0.5rem 2rem #000;
 }
 
 .registerDivElem {
+	padding: 20px;
+	width: 250px;
+	height: 350px;
 	background-color: lightgray;
 	border: solid 1px #333;
+	border-radius: 20px;
 	display: flex;
 	flex-direction: column;
+	box-shadow: 0.5rem 0.5rem 2rem #000;
+}
+
+.input {
+	padding: 15px;
+	border-radius: 4px;
 }
 
 h1 {
@@ -61,7 +113,7 @@ h1 {
 }
 
 #footer {
-	background-color: #504f59;
+	background-color: rgba(63, 58, 58, 0.5);
 	color: white;
 	position: fixed;
 	bottom: 0;

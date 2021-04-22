@@ -13,7 +13,14 @@ function checkLogin() {
 // HEADER
 let headerElem = document.createElement("header");
 headerElem.id = "headerElem";
+// headerElem.className = "floatingBG"
 document.body.appendChild(headerElem);
+
+// ANIMATED BACKGROUND
+let animElem = document.createElement("div");
+// headerElem.id = "headerElem";
+animElem.className = "animElem"
+document.body.appendChild(animElem);
 
 // MENU
 let menuElem = document.createElement("div");
