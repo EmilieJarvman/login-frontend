@@ -3,9 +3,30 @@
 const localStorageKey = "loggedInUserId";
 let isLoggedIn = false;
 let failedLogin = false;
+let currentUser = null;
 
 function checkLogin() {
     isLoggedIn = JSON.parse(localStorage.getItem(localStorageKey));
+    if (isLoggedIn) {
+        // fetch("http://localhost:3000/users/getuser", {
+            fetch("https://emibur-1.herokuapp.com/users/getuser", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({id: isLoggedIn})
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                currentUser = data;
+                headerSuccessElem.innerText = `Hej ${currentUser.username}! Nu är du inloggad.`;
+                toggleCheckbox.checked = currentUser.subscribed;
+                regInfoText.innerHTML = currentUser.subscribed ? "Du prenumererar på vårt nyhetsbrev." : "Du prenumererar inte på vårt nyhetsbrev.";
+                regQuestionText.innerHTML = `Klicka om du vill${currentUser.subscribed ? " sluta":""} prenumerera.`;
+            })
+    }
+
     console.log({isLoggedIn});
 }
 
@@ -42,6 +63,31 @@ function logOut() {
     localStorage.removeItem(localStorageKey);
     render();
 }
+
+// Skapa div och lägg nedan i utanpå
+
+const regInfoText = document.createElement("p");
+regInfoText.innerHTML = "Du prenumererar (inte) på vårt nyhetsbrev";
+
+const regQuestionText = document.createElement("p");
+regQuestionText.innerHTML = "Klicka i om du vill (sluta) prenumerera";
+
+const toggleCheckbox = document.createElement("input");
+toggleCheckbox.type = "checkbox";
+toggleCheckbox.className = "checkbox";
+toggleCheckbox.onclick = function() {
+    // fetch("http://localhost:3000/users/subscriber", {
+            fetch("https://emibur-1.herokuapp.com/users/subscriber", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({id: isLoggedIn, state: toggleCheckbox.checked })
+            })
+            .then(() => {
+                render();
+            }) 
+    }
 
 
 // LOGIN_MENU
@@ -119,6 +165,11 @@ regButton.onclick = function () {
     .then(res => res.json())
     .then(data => {
         console.log({data})
+        if(data) {
+            localStorage.setItem(localStorageKey, JSON.stringify(data))
+        }
+        render();        
+        // 
     })
     // .then(data => {
     //     console.log(data);
@@ -152,6 +203,7 @@ function inputLogin() {
     const credentials = {userName: inputName, password: inputPassword}
     console.log(`Your username is ${inputName} and your password is ${inputPassword} `);
 
+    // fetch("http://localhost:3000/users/login", {
     fetch("https://emibur-1.herokuapp.com/users/login", {
         method: "POST",
         headers: {
@@ -197,19 +249,10 @@ function render() {
     header.innerText = "";
     if (isLoggedIn) {
         menuElem.appendChild(logOutButton);
-        headerSuccessElem.innerText = `Hej! Nu är du inloggad.`;
+        headerSuccessElem.innerText = `Hej! Nu är du inloggad.`; 
         mainDiv.appendChild(headerSuccessElem);
 
-        const regInfoText = document.createElement("p");
-        regInfoText.innerHTML = "Du prenumererar (inte) på vårt nyhetsbrev";
-
-        const regQuestionText = document.createElement("p");
-        regQuestionText.innerHTML = "Klicka i om du vill (sluta) prenumerera";
-
-        const toggleCheckbox = document.createElement("input");
-        toggleCheckbox.type = "checkbox";
-        toggleCheckbox.className = "checkbox";
-
+    
         mainDiv.appendChild(regInfoText);
         mainDiv.appendChild(regQuestionText);
         mainDiv.appendChild(toggleCheckbox);
