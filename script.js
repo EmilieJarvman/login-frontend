@@ -18,16 +18,13 @@ function checkLogin() {
             })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 currentUser = data;
                 headerSuccessElem.innerText = `Hej ${currentUser.username}! Nu är du inloggad.`;
                 toggleCheckbox.checked = currentUser.subscribed;
                 regInfoText.innerHTML = currentUser.subscribed ? "Du prenumererar på vårt nyhetsbrev." : "Du prenumererar inte på vårt nyhetsbrev.";
-                regQuestionText.innerHTML = `Klicka om du vill${currentUser.subscribed ? " sluta":""} prenumerera.`;
+                regQuestionText.innerHTML = `Klicka här om du vill${currentUser.subscribed ? " sluta":""} prenumerera.`;
             })
     }
-
-    console.log({isLoggedIn});
 }
 
 
@@ -62,18 +59,17 @@ function logOut() {
     render();
 }
 
-
 const infoDivElem = document.createElement("div");
 infoDivElem.className = "card";
 infoDivElem.id = "infoDivElem";
 
 const regInfoText = document.createElement("p");
 regInfoText.className = "regInfo"
-regInfoText.innerHTML = "Du prenumererar (inte) på vårt nyhetsbrev";
+regInfoText.innerHTML = "Du prenumererar på vårt nyhetsbrev";
 
 const regQuestionText = document.createElement("p");
 regQuestionText.className = "regInfo"
-regQuestionText.innerHTML = "Klicka i om du vill (sluta) prenumerera";
+regQuestionText.innerHTML = "Klicka här om du vill prenumerera";
 
 const toggleCheckbox = document.createElement("input");
 toggleCheckbox.type = "checkbox";
@@ -90,7 +86,7 @@ toggleCheckbox.onclick = function() {
             .then(() => {
                 render();
             }) 
-    }
+}
 
 
 // LOGIN_MENU
@@ -116,7 +112,6 @@ logInButton.onclick = inputLogin;
 // REGISTER_MENU
 const registerDivElem = document.createElement("div");
 registerDivElem.className = "card";
-
 
 const regNameInput = document.createElement("input");
 regNameInput.className = "input";
@@ -156,7 +151,7 @@ regButton.onclick = function () {
         email,
         subscribed,
     }
-    console.log(newUser, JSON.stringify(newUser));
+  
     // fetch("http://localhost:3000/users/adduser", {
     fetch("https://emibur-1.herokuapp.com/users/adduser", {
         method: "POST",
@@ -172,11 +167,8 @@ regButton.onclick = function () {
             localStorage.setItem(localStorageKey, JSON.stringify(data))
         }
         render();        
-         
-    })
-       
+    })      
 }
-
 
 
 // MAIN
@@ -185,7 +177,6 @@ mainDiv.id = "mainDiv";
 document.body.appendChild(mainDiv); 
 
 const headerLoginElem = document.createElement("h1");
-
 
 const headerFailedElem = document.createElement("h1");
 headerFailedElem.innerText = "Hoppsan! Nu blev det fel..";
@@ -198,7 +189,7 @@ function inputLogin() {
     let inputName = userNameElem.value;
     let inputPassword = userPasswordElem.value;
     const credentials = {userName: inputName, password: inputPassword}
-    console.log(`Your username is ${inputName} and your password is ${inputPassword} `);
+    
 
     // fetch("http://localhost:3000/users/login", {
     fetch("https://emibur-1.herokuapp.com/users/login", {
@@ -215,15 +206,12 @@ function inputLogin() {
         } else {
             failedLogin = true;
         }
-        console.log(data, failedLogin);
-
+        
         userNameElem.value = "";
         userPasswordElem.value = ""; 
         render();
     })
 }
-
-
 
 
 // FOOTER
@@ -255,7 +243,6 @@ function render() {
         
         
     } else {
-        console.log(failedLogin);
         menuElem.appendChild(loginDivElem);
         loginDivElem.appendChild(userNameElem);
         loginDivElem.appendChild(userPasswordElem);
@@ -271,7 +258,6 @@ function render() {
      
         
         if (failedLogin) {
-            console.log("Wrong! Try again");
             mainDiv.appendChild(headerFailedElem);
         }else {
             header.innerText = "Hej! Logga in eller registrera dig."
