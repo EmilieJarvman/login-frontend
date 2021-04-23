@@ -64,7 +64,8 @@ function logOut() {
 
 
 const infoDivElem = document.createElement("div");
-infoDivElem.className = "infoDivElem";
+infoDivElem.className = "card";
+infoDivElem.id = "infoDivElem";
 
 const regInfoText = document.createElement("p");
 regInfoText.className = "regInfo"
@@ -94,7 +95,7 @@ toggleCheckbox.onclick = function() {
 
 // LOGIN_MENU
 const loginDivElem = document.createElement("div");
-loginDivElem.className = "loginDivElem";
+loginDivElem.className = "card";
 
 const userNameElem = document.createElement("input");
 userNameElem.className = "input";
@@ -114,7 +115,7 @@ logInButton.onclick = inputLogin;
 
 // REGISTER_MENU
 const registerDivElem = document.createElement("div");
-registerDivElem.className = "registerDivElem";
+registerDivElem.className = "card";
 
 
 const regNameInput = document.createElement("input");

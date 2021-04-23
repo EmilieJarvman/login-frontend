@@ -85,48 +85,21 @@ body {
 	height: 30px;
 }
 
-/* .loginDivElem och .registerDivElem är exakt lika. Fixa det!*/
-.loginDivElem {
+.card {
 	margin: 100px 50px;
 	padding: 20px;
 	width: 250px;
 	height: 350px;
 	background-color: lightgray;
-	/* border: solid 1px #333; */
 	border-radius: 20px;
 	display: flex;
 	flex-direction: column;
 	box-shadow: 0.5rem 0.5rem 2rem #000;
 }
 
-.registerDivElem {
-	margin: 100px 50px;
-	padding: 20px;
-	width: 250px;
-	height: 350px;
-	background-color: lightgray;
-	/* border: solid 1px #333; */
-	border-radius: 20px;
-	display: flex;
-	flex-direction: column;
-	box-shadow: 0.5rem 0.5rem 2rem #000;
-}
-
-/* #mainDiv {
-	display: flex;
-} */
-
-.infoDivElem {
-	margin-top: 150px;
-	width: 250px;
-	height: 350px;
-	background-color: lightgray;
-	border-radius: 20px;
+#infoDivElem {
 	margin: 0 auto;
-	display: flex;
-	flex-direction: column;
 	align-items: center;
-	box-shadow: 0.5rem 0.5rem 2rem #000;
 }
 
 .regInfo {
