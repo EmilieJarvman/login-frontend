@@ -1,10 +1,10 @@
-
-
 const localStorageKey = "loggedInUserId";
 let isLoggedIn = false;
 let failedLogin = false;
 let currentUser = null;
 
+
+// FUNCTION TO CHECK IF USER IS LOGGED IN - LOCALSTORAGE
 function checkLogin() {
     isLoggedIn = JSON.parse(localStorage.getItem(localStorageKey));
     if (isLoggedIn) {
@@ -47,7 +47,7 @@ let menuElem = document.createElement("div");
 menuElem.id = "menuElem";
 headerElem.appendChild(menuElem);
 
-// LOGOUT BUTTON
+// LOGOUT BUTTON - REMOVE FROM LOCALSTORAGE
 const logOutButton = document.createElement("button");
 logOutButton.id = "logOutButton";
 logOutButton.className ="button";
@@ -59,6 +59,7 @@ function logOut() {
     render();
 }
 
+// ELEMENTS INFO_PAGE
 const infoDivElem = document.createElement("div");
 infoDivElem.className = "card";
 infoDivElem.id = "infoDivElem";
@@ -71,6 +72,7 @@ const regQuestionText = document.createElement("p");
 regQuestionText.className = "regInfo"
 regQuestionText.innerHTML = "Klicka här om du vill prenumerera";
 
+// CHECKBOX WOTH TOGGLE FUNCTION
 const toggleCheckbox = document.createElement("input");
 toggleCheckbox.type = "checkbox";
 toggleCheckbox.className = "checkbox";
@@ -136,6 +138,7 @@ const regLabel = document.createElement("label");
 regLabel.innerText = "Prenumerera på nyhetsbrevet";
 regLabel.id ="regLabel"
 
+// REGISTER NEW USER
 const regButton = document.createElement("button");
 regButton.id = "regButton";
 regButton.className = "button";
@@ -171,7 +174,7 @@ regButton.onclick = function () {
 }
 
 
-// MAIN
+// MAIN MENU
 let mainDiv = document.createElement("div");
 mainDiv.id = "mainDiv";
 document.body.appendChild(mainDiv); 
@@ -184,7 +187,7 @@ headerFailedElem.innerText = "Hoppsan! Nu blev det fel..";
 const headerSuccessElem = document.createElement("h1");
 
 
-// LOGIN
+// LOGIN FUNCTION - SAVE TO LOCALSTORAGE
 function inputLogin() {
     let inputName = userNameElem.value;
     let inputPassword = userPasswordElem.value;
@@ -224,7 +227,7 @@ footerText.innerText = "Glöm inte att prenumerera på vårt fantastiska nyhetsb
 footer.appendChild(footerText);
 
 
-// RENDER
+// RENDER FUNCTION
 function render() {
     checkLogin();
     menuElem.innerText = "";
