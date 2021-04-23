@@ -14,13 +14,13 @@
 >
 > Lösenord: cobain
 >
-> Kurt prenumererar _inte_ på nyhetsbrevet.
+> (Kurt prenumererar _inte_ på nyhetsbrevet)
 
 > Namn: Janne
 > 
 > Lösenord: test
 >
-> Janne prenumererar på nyhetsbrevet.
+> (Janne prenumererar på nyhetsbrevet)
 
 ---
 
