@@ -66,10 +66,15 @@ function logOut() {
 
 // Skapa div och lägg nedan i utanpå
 
+const infoDivElem = document.createElement("div");
+infoDivElem.className = "infoDivElem";
+
 const regInfoText = document.createElement("p");
+regInfoText.className = "regInfo"
 regInfoText.innerHTML = "Du prenumererar (inte) på vårt nyhetsbrev";
 
 const regQuestionText = document.createElement("p");
+regQuestionText.className = "regInfo"
 regQuestionText.innerHTML = "Klicka i om du vill (sluta) prenumerera";
 
 const toggleCheckbox = document.createElement("input");
@@ -252,10 +257,10 @@ function render() {
         headerSuccessElem.innerText = `Hej! Nu är du inloggad.`; 
         mainDiv.appendChild(headerSuccessElem);
 
-    
-        mainDiv.appendChild(regInfoText);
-        mainDiv.appendChild(regQuestionText);
-        mainDiv.appendChild(toggleCheckbox);
+        mainDiv.appendChild(infoDivElem)
+        infoDivElem.appendChild(regInfoText);
+        infoDivElem.appendChild(regQuestionText);
+        infoDivElem.appendChild(toggleCheckbox);
 
         // fetch("https://emibur-1.herokuapp.com/users/list")
         // .then(res => res.json())
