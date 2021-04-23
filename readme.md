@@ -11,11 +11,15 @@
 ### Det finns två färdiga användare:
 
 > Namn: Kurt
+>
 > Lösenord: cobain
+>
 > Kurt prenumererar _inte_ på nyhetsbrevet.
 
 > Namn: Janne
+> 
 > Lösenord: test
+>
 > Janne prenumererar på nyhetsbrevet.
 
 ---
