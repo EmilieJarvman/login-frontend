@@ -8,8 +8,8 @@ let currentUser = null;
 function checkLogin() {
     isLoggedIn = JSON.parse(localStorage.getItem(localStorageKey));
     if (isLoggedIn) {
-        // fetch("http://localhost:3000/users/getuser", {
-            fetch("https://emibur-1.herokuapp.com/users/getuser", {
+        fetch("http://localhost:3000/users/getuser", {
+            // fetch("https://emibur-1.herokuapp.com/users/getuser", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -75,8 +75,8 @@ const toggleCheckbox = document.createElement("input");
 toggleCheckbox.type = "checkbox";
 toggleCheckbox.className = "checkbox";
 toggleCheckbox.onclick = function() {
-    // fetch("http://localhost:3000/users/subscriber", {
-            fetch("https://emibur-1.herokuapp.com/users/subscriber", {
+    fetch("http://localhost:3000/users/subscriber", {
+            // fetch("https://emibur-1.herokuapp.com/users/subscriber", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -100,7 +100,7 @@ userNameElem.placeholder = "Användarnamn";
 
 const userPasswordElem = document.createElement("input");
 userPasswordElem.className = "input";
-userPasswordElem.type = "password";
+userPasswordElem.type = "text";
 userPasswordElem.placeholder = "Lösenord";
 
 const logInButton = document.createElement("button");
@@ -120,7 +120,7 @@ regNameInput.placeholder = "Önskat användarnamn";
 
 const regPasswordInput = document.createElement("input");
 regPasswordInput.className = "input";
-regPasswordInput.type = "password";
+regPasswordInput.type = "text";
 regPasswordInput.placeholder = "Önskat lösenord";
 
 const regEmail = document.createElement("input");
@@ -152,8 +152,8 @@ regButton.onclick = function () {
         subscribed,
     }
   
-    // fetch("http://localhost:3000/users/adduser", {
-    fetch("https://emibur-1.herokuapp.com/users/adduser", {
+    fetch("http://localhost:3000/users/adduser", {
+    // fetch("https://emibur-1.herokuapp.com/users/adduser", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -191,8 +191,8 @@ function inputLogin() {
     const credentials = {userName: inputName, password: inputPassword}
     
 
-    // fetch("http://localhost:3000/users/login", {
-    fetch("https://emibur-1.herokuapp.com/users/login", {
+    fetch("http://localhost:3000/users/login", {
+    // fetch("https://emibur-1.herokuapp.com/users/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
