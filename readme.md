@@ -10,18 +10,14 @@
 
 ### Det finns två färdiga användare:
 
-> Namn: Kurt
->
-> Lösenord: cobain
->
-> (Kurt prenumererar _inte_ på nyhetsbrevet)
+> Namn: Kurt  
+> Lösenord: cobain  
+> (Kurt prenumererar _inte_ på nyhetsbrevet)  
+<br>
+<br>
 
-
-
-> Namn: Janne
-> 
-> Lösenord: test
->
+> Namn: Janne  
+> Lösenord: test  
 > (Janne prenumererar på nyhetsbrevet)
 
 ---
