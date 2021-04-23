@@ -38,12 +38,10 @@ document.body.appendChild(headerElem);
 
 const header = document.createElement("h1");
 header.id = "header";
-// header.innerText = "Hej! Logga in eller registrera dig."
 headerElem.appendChild(header); 
 
 // ANIMATED BACKGROUND
 let animElem = document.createElement("div");
-// headerElem.id = "headerElem";
 animElem.className = "animElem"
 document.body.appendChild(animElem);
 
@@ -64,7 +62,6 @@ function logOut() {
     render();
 }
 
-// Skapa div och lägg nedan i utanpå
 
 const infoDivElem = document.createElement("div");
 infoDivElem.className = "infoDivElem";
@@ -174,17 +171,11 @@ regButton.onclick = function () {
             localStorage.setItem(localStorageKey, JSON.stringify(data))
         }
         render();        
-        // 
+         
     })
-    // .then(data => {
-    //     console.log(data);
-    //     // glöm inte att tömma reg-formuläret
-    //     // userNameElem.value = "";
-    //     // userPasswordElem.value = ""; 
-    //     render();
-    // })    
+       
 }
-// Function så att ny användare sparas
+
 
 
 // MAIN
@@ -193,7 +184,7 @@ mainDiv.id = "mainDiv";
 document.body.appendChild(mainDiv); 
 
 const headerLoginElem = document.createElement("h1");
-// headerLoginElem.innerText = "Hej! Logga in på sidan!";
+
 
 const headerFailedElem = document.createElement("h1");
 headerFailedElem.innerText = "Hoppsan! Nu blev det fel..";
@@ -229,11 +220,9 @@ function inputLogin() {
         userPasswordElem.value = ""; 
         render();
     })
-
-    
 }
 
-// REGISTER NEW USER
+
 
 
 // FOOTER
@@ -262,57 +251,9 @@ function render() {
         infoDivElem.appendChild(regQuestionText);
         infoDivElem.appendChild(toggleCheckbox);
 
-        // fetch("https://emibur-1.herokuapp.com/users/list")
-        // .then(res => res.json())
-        // .then(data => {
         
-            // for(item in data) {
-            //     const user = data[item];
-            //     const userDiv = document.createElement("div");
-            //     userDiv.innerText = `${user.username} ${user.password}, epost: ${user.email}, nr: ${user.id}`
-            //     mainDiv.appendChild(userDiv)
-            // }
-
-            
-            // const inputElem = document.createElement("input");
-            // const buttonElem = document.createElement("button");
-            // buttonElem.innerText = "Spara"
-            
-            // buttonElem.onclick = function() {
-            //     let newUser = {
-            //         username: inputElem.value,
-            //         password: inputElem.value + "hemligt",
-            //         email: inputElem.value + "@test.com",
-            //         id: 0012345
-            //     }
-            //     console.log(newUser);
-                
-            //     fetch("https://emibur-1.herokuapp.com/users/add", {
-            //         method: "post",
-            //         headers: {
-            //             "Content-Type": "application/json"
-            //         },
-            //         body: JSON.stringify(newUser)
-            //     })
-            //     .then(res => res.json())
-            //     .then(data =>  {
-            //         console.log(data)
-            //         render()
-        
-            //     });
-            // }
-
-            // mainDiv.appendChild(inputElem);
-            // mainDiv.appendChild(buttonElem);
-
-            // inputElem.name = "username"
-
-            
-
-        // })
         
     } else {
-        // headerElem.appendChild(header); 
         console.log(failedLogin);
         menuElem.appendChild(loginDivElem);
         loginDivElem.appendChild(userNameElem);
