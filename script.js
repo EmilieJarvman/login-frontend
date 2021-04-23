@@ -133,7 +133,7 @@ regNewsletterCheck.className = "checkbox"
 regNewsletterCheck.type = "checkbox";
 
 const regLabel = document.createElement("label");
-regLabel.innerText = "Prenumerera";
+regLabel.innerText = "Prenumerera på nyhetsbrevet";
 regLabel.id ="regLabel"
 
 const regButton = document.createElement("button");
