@@ -100,7 +100,7 @@ userNameElem.placeholder = "Användarnamn";
 
 const userPasswordElem = document.createElement("input");
 userPasswordElem.className = "input";
-userPasswordElem.type = "text";
+userPasswordElem.type = "password";
 userPasswordElem.placeholder = "Lösenord";
 
 const logInButton = document.createElement("button");
@@ -120,7 +120,7 @@ regNameInput.placeholder = "Önskat användarnamn";
 
 const regPasswordInput = document.createElement("input");
 regPasswordInput.className = "input";
-regPasswordInput.type = "text";
+regPasswordInput.type = "password";
 regPasswordInput.placeholder = "Önskat lösenord";
 
 const regEmail = document.createElement("input");
