@@ -14,7 +14,6 @@
 > Lösenord: cobain  
 > (Kurt prenumererar _inte_ på nyhetsbrevet)  
 <br>
-<br>
 
 > Namn: Janne  
 > Lösenord: test  
