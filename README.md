@@ -2,7 +2,7 @@
 
 ---
 
-### Länkt till applikationen i produktion:
+### Länk till applikationen i produktion:
 
 [Applikation - Nyhetsbrev](https://emiliejarvman.github.io/login-frontend/)
 
@@ -13,7 +13,7 @@
 > Namn: Kurt  
 > Lösenord: cobain  
 > (Kurt prenumererar _inte_ på nyhetsbrevet)  
-<br>
+> <br>
 
 > Namn: Janne  
 > Lösenord: test  
