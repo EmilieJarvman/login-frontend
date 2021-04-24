@@ -8,8 +8,8 @@ let currentUser = null;
 function checkLogin() {
     isLoggedIn = JSON.parse(localStorage.getItem(localStorageKey));
     if (isLoggedIn) {
-        fetch("http://localhost:3000/users/getuser", {
-            // fetch("https://emibur-1.herokuapp.com/users/getuser", {
+        // fetch("http://localhost:3000/users/getuser", {
+            fetch("https://emibur-1.herokuapp.com/users/getuser", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -77,8 +77,8 @@ const toggleCheckbox = document.createElement("input");
 toggleCheckbox.type = "checkbox";
 toggleCheckbox.className = "checkbox";
 toggleCheckbox.onclick = function() {
-    fetch("http://localhost:3000/users/subscriber", {
-            // fetch("https://emibur-1.herokuapp.com/users/subscriber", {
+    // fetch("http://localhost:3000/users/subscriber", {
+            fetch("https://emibur-1.herokuapp.com/users/subscriber", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -144,6 +144,7 @@ regButton.id = "regButton";
 regButton.className = "button";
 regButton.innerText = "Registrera dig";
 regButton.onclick = function () {
+    regButton.disabled = true;
     const username = regNameInput.value;
     const password = regPasswordInput.value;
     const email = regEmail.value;
@@ -155,8 +156,8 @@ regButton.onclick = function () {
         subscribed,
     }
   
-    fetch("http://localhost:3000/users/adduser", {
-    // fetch("https://emibur-1.herokuapp.com/users/adduser", {
+    // fetch("http://localhost:3000/users/adduser", {
+    fetch("https://emibur-1.herokuapp.com/users/adduser", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -165,10 +166,15 @@ regButton.onclick = function () {
     })
     .then(res => res.json())
     .then(data => {
-        console.log({data})
+        
         if(data) {
             localStorage.setItem(localStorageKey, JSON.stringify(data))
         }
+        regNameInput.value = "";
+        regPasswordInput.value = "";
+        regEmail.value = "";
+        regNewsletterCheck.checked = false;
+        regButton.disabled = false;
         render();        
     })      
 }
@@ -194,8 +200,8 @@ function inputLogin() {
     const credentials = {userName: inputName, password: inputPassword}
     
 
-    fetch("http://localhost:3000/users/login", {
-    // fetch("https://emibur-1.herokuapp.com/users/login", {
+    // fetch("http://localhost:3000/users/login", {
+    fetch("https://emibur-1.herokuapp.com/users/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
